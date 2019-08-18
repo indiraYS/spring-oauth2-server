@@ -55,19 +55,19 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .checkTokenAccess("isAuthenticated()");
     }
 
-    @Override
+    /*@Override
     public void configure (final ClientDetailsServiceConfigurer clients) throws  Exception {
-      /*  clients.inMemory()
+      *//*  clients.inMemory()
                 .withClient("ClientId")
                 .secret(passwordEncoder.encode("secret"))
                 .authorizedGrantTypes("authorization_code")
                 .scopes("user_info")
                 .autoApprove(true)
-                .redirectUris("http://localhost:8082/ui/login", "http://prj.local:80/g.php");*/
+                .redirectUris("http://localhost:8082/ui/login", "http://prj.local:80/g.php");*//*
 
         clients.jdbc(oauthDataSource())
-                .passwordEncoder(PasswordEncoderFactories.createDelegatingPasswordEncoder());;
-    }
+                .passwordEncoder(PasswordEncoderFactories.createDelegatingPasswordEncoder());
+    }*/
 
     //@Bean
     /*public TokenStore tokenStore() {
@@ -85,7 +85,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     public Environment env;
 
     //@Primary
-    @Bean
+    /*@Bean
     public DataSource oauthDataSource() {
         System.out.println(env.getProperty("spring.datasource.jdbc-url"));
         System.out.println(env.getProperty("spring.datasource.username"));
@@ -98,7 +98,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         dataSource.setUsername(env.getProperty("spring.datasource.username"));
         dataSource.setPassword(env.getProperty("spring.datasource.password"));
         return dataSource;
-    }
+    }*/
 
 
 }
