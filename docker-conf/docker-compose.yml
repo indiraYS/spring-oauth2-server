@@ -13,10 +13,13 @@ services:
     restart: always
   web:
     restart: always
-    working_dir: /sring-security-auth-server
+    working_dir: /spring-oauth2-server
     build:
-      context: ./sring-security-auth-server
+      context: ./spring-oauth2-server
       dockerfile: Dockerfile
+    volumes :
+      - ./spring-oauth2-server:/spring-oauth2-server
+      - ~/.m2:/root/.m2
     ports:
     - 8081:8081
     command: 'mvn clean spring-boot:run'
